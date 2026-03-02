@@ -1,94 +1,46 @@
-                                 Apache License
-                           Version 2.0, January 2004
-                        http://www.apache.org/licenses/
+# archicustos
 
-   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+## Purpose
 
-   1. Definitions.
+Atomic primitive: archive custody / custodial locking.
 
-      "License" shall mean the terms and conditions for use, reproduction,
-      and distribution as defined by Sections 1 through 9 of this document.
+## Status
 
-      "Licensor" shall mean the copyright owner or entity authorized by
-      the copyright owner that is granting the License.
+- **Stability**: Experimental
+- **SemVer**: Not guaranteed until v1.0.0
+- **Security**: See **Security** section below
 
-      "Legal Entity" shall mean the union of the acting entity and all
-      other entities that control, are controlled by, or are under common
-      control with that entity.
+## Scope
 
-      "You" (or "Your") shall mean an individual or Legal Entity
-      exercising permissions granted by this License.
+- What this repo is responsible for
+- What it explicitly does **not** do
 
-      "Source" form shall mean the preferred form for making modifications,
-      including but not limited to software source code, documentation
-      source, and configuration files.
+## Quickstart
 
-      "Object" form shall mean any form resulting from mechanical
-      transformation or translation of a Source form.
+```bash
+# clone
+git clone https://github.com/Verifrax/archicustos.git
+cd archicustos
 
-      "Work" shall mean the work of authorship, whether in Source or
-      Object form, made available under the License.
+# install (adjust if needed)
+# (placeholder) npm install / pnpm install / go test ./... / etc.
+```
 
-      "Derivative Works" shall mean any work that is based on (or derived
-      from) the Work.
+## Repository layout
 
-      "Contribution" shall mean any work intentionally submitted for
-      inclusion in the Work.
+- `/` Root sources
+- `/.github/` Issue + PR templates
+- `/docs/` Documentation (if present)
 
-      "Contributor" shall mean Licensor and any individual or Legal Entity
-      on behalf of whom a Contribution has been received.
+## Security
 
-   2. Grant of Copyright License.
-      Subject to the terms and conditions of this License, each Contributor
-      hereby grants to You a perpetual, worldwide, non-exclusive, no-charge,
-      royalty-free, irrevocable copyright license to reproduce, prepare
-      Derivative Works of, publicly display, publicly perform, sublicense,
-      and distribute the Work and such Derivative Works.
+- Report vulnerabilities privately: **security@verifrax.org**
+- Do **not** open public issues for sensitive findings
 
-   3. Grant of Patent License.
-      Subject to the terms and conditions of this License, each Contributor
-      hereby grants to You a perpetual, worldwide, non-exclusive, no-charge,
-      royalty-free, irrevocable (except as stated in this section) patent
-      license to make, have made, use, offer to sell, sell, import, and
-      otherwise transfer the Work.
+## Contributing
 
-   4. Redistribution.
-      You may reproduce and distribute copies of the Work or Derivative
-      Works provided that You:
-      (a) give recipients a copy of this License; and
-      (b) mark modified files; and
-      (c) retain notices; and
-      (d) include NOTICE contents if present.
+See `CONTRIBUTING.md`.
 
-   5. Submission of Contributions.
-      Contributions submitted for inclusion in the Work are under this
-      License unless explicitly stated otherwise.
+## License
 
-   6. Trademarks.
-      This License does not grant permission to use trade names, trademarks,
-      service marks, or product names of the Licensor.
-
-   7. Disclaimer of Warranty.
-      The Work is provided on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-      CONDITIONS OF ANY KIND, either express or implied.
-
-   8. Limitation of Liability.
-      In no event shall any Contributor be liable for any damages arising
-      from the use of the Work.
-
-   9. Accepting Warranty or Additional Liability.
-      You may offer support or warranty only on Your own behalf.
-
-   END OF TERMS AND CONDITIONS
-
-   Copyright 2026 midiakiasat
-
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND.
+MIT. See `LICENSE`.
