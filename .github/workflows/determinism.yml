@@ -8,10 +8,22 @@ jobs:
   determinism:
     runs-on: ubuntu-latest
     steps:
+      - name: Prepare temp workdir (no workspace writes)
+        shell: bash
+        run: |
+          cd "${ARCHICUSTOS_WORK}"
+          set -euo pipefail
+          TMPDIR="${RUNNER_TEMP:-/tmp}/archicustos-work-${RANDOM}"
+          mkdir -p "$TMPDIR"
+          rsync -a --exclude ".git" . "$TMPDIR/"
+          cd "$TMPDIR"
+          chmod +x ./archicustos.sh
+          echo "ARCHICUSTOS_WORK=$TMPDIR" >> "$GITHUB_ENV"
       - uses: actions/checkout@v4
 
       - name: Test empty stdin → deterministic INVALID
         run: |
+          cd "${ARCHICUSTOS_WORK}"
           set -eu
           EXIT_CODE=0
           ./archicustos.sh < /dev/null > output.txt 2>&1 || EXIT_CODE=$?
@@ -24,6 +36,7 @@ jobs:
 
       - name: Test determinism (run twice)
         run: |
+          cd "${ARCHICUSTOS_WORK}"
           set -eu
           echo "test input" | ./archicustos.sh > output1.txt 2>&1 || true
           echo $? > exit1.txt
@@ -45,6 +58,7 @@ jobs:
 
       - name: Test no state mutation
         run: |
+          cd "${ARCHICUSTOS_WORK}"
           set -eu
           find . -type f | sort > before.txt
           
@@ -61,6 +75,7 @@ jobs:
 
       - name: Test env isolation
         run: |
+          cd "${ARCHICUSTOS_WORK}"
           set -eu
           env | sort > env_before.txt
           echo "test" | ./archicustos.sh > /dev/null 2>&1 || true
