@@ -1,4 +1,3 @@
-```
 PRIM-007
 ARCHICUSTOS
 Custody primitive
@@ -14,97 +13,199 @@ STATUS: FINAL
 
 ---
 
-                                 Apache License
-                           Version 2.0, January 2004
-                        http://www.apache.org/licenses/
+Registered artifact. Identity governed by SPEEDKIT registry.
 
-   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+STATUS: FINAL
 
-   1. Definitions.
+---
 
-      "License" shall mean the terms and conditions for use, reproduction,
-      and distribution as defined by Sections 1 through 9 of this document.
+**ARCHICUSTOS v0.0.0** is a custody primitive.
 
-      "Licensor" shall mean the copyright owner or entity authorized by
-      the copyright owner that is granting the License.
+It does not decide.
+It does not verify.
+It does not witness.
+It does not execute.
+It does not enforce transitions.
 
-      "Legal Entity" shall mean the union of the acting entity and all
-      other entities that control, are controlled by, or are under common
-      control with that entity.
+It **guards custody**.
 
-      "You" (or "Your") shall mean an individual or Legal Entity
-      exercising permissions granted by this License.
+ARCHICUSTOS exists to make authority, responsibility, and ownership explicit across irreversible systems.
 
-      "Source" form shall mean the preferred form for making modifications,
-      including but not limited to software source code, documentation
-      source, and configuration files.
+---
 
-      "Object" form shall mean any form resulting from mechanical
-      transformation or translation of a Source form.
+## Philosophy
 
-      "Work" shall mean the work of authorship, whether in Source or
-      Object form, made available under the License.
+Most failures are not technical.
+They are failures of custody.
 
-      "Derivative Works" shall mean any work that is based on (or derived
-      from) the Work.
+Who was responsible?
+Who held authority?
+Who had the right to act at that moment?
 
-      "Contribution" shall mean any work intentionally submitted for
-      inclusion in the Work.
+ARCHICUSTOS exists to prevent these questions from becoming unanswerable.
 
-      "Contributor" shall mean Licensor and any individual or Legal Entity
-      on behalf of whom a Contribution has been received.
+It answers one question only:
 
-   2. Grant of Copyright License.
-      Subject to the terms and conditions of this License, each Contributor
-      hereby grants to You a perpetual, worldwide, non-exclusive, no-charge,
-      royalty-free, irrevocable copyright license to reproduce, prepare
-      Derivative Works of, publicly display, publicly perform, sublicense,
-      and distribute the Work and such Derivative Works.
+> **Who holds custody right now?**
 
-   3. Grant of Patent License.
-      Subject to the terms and conditions of this License, each Contributor
-      hereby grants to You a perpetual, worldwide, non-exclusive, no-charge,
-      royalty-free, irrevocable (except as stated in this section) patent
-      license to make, have made, use, offer to sell, sell, import, and
-      otherwise transfer the Work.
+Not who created.
+Not who modified.
+Not who claims.
 
-   4. Redistribution.
-      You may reproduce and distribute copies of the Work or Derivative
-      Works provided that You:
-      (a) give recipients a copy of this License; and
-      (b) mark modified files; and
-      (c) retain notices; and
-      (d) include NOTICE contents if present.
+Custody.
 
-   5. Submission of Contributions.
-      Contributions submitted for inclusion in the Work are under this
-      License unless explicitly stated otherwise.
+---
 
-   6. Trademarks.
-      This License does not grant permission to use trade names, trademarks,
-      service marks, or product names of the Licensor.
+## What ARCHICUSTOS Is
 
-   7. Disclaimer of Warranty.
-      The Work is provided on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-      CONDITIONS OF ANY KIND, either express or implied.
+ARCHICUSTOS is a **custody and authority primitive**.
 
-   8. Limitation of Liability.
-      In no event shall any Contributor be liable for any damages arising
-      from the use of the Work.
+It records and enforces continuity of custodianship over an artifact, system, or process.
 
-   9. Accepting Warranty or Additional Liability.
-      You may offer support or warranty only on Your own behalf.
+It binds:
 
-   END OF TERMS AND CONDITIONS
+* Declared custodian (stdin)
+* Repository identity
+* Commit context
+* Timestamp
 
-   Copyright 2026 midiakiasat
+Into a single, append-only custody ledger.
 
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
+The result is **responsibility traceability**.
 
-       http://www.apache.org/licenses/LICENSE-2.0
+---
 
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND.
+## What It Is Not
+
+* Not an access control system
+* Not an authentication mechanism
+* Not a verifier
+* Not a judge
+* Not a workflow engine
+* Not a governance framework
+
+ARCHICUSTOS does not grant power.
+It records **who already holds it**.
+
+---
+
+## Behavior
+
+* Consumes custody declarations exclusively via `stdin`
+* Refuses silent invocation
+* Requires explicit custodian declaration
+* Records custody claims immutably
+* Enforces continuity (no orphaned custody)
+* Emits exactly one verdict
+* Exits immediately after recording
+
+No retries.
+No flags.
+No configuration.
+
+---
+
+## Verdicts
+
+ARCHICUSTOS emits exactly one of the following:
+
+* `ACCEPTED` — custody recorded and continuous
+* `DENIED` — custody invalid, ambiguous, or conflicting
+
+The verdict concerns **authority continuity**, not correctness.
+
+---
+
+## Usage
+
+ARCHICUSTOS is never run casually.
+It is invoked when custody matters.
+
+```sh
+<custodian-identity> | ./archicustos.sh
+```
+
+### Example
+
+```sh
+echo "custodian: midiakiasat" | ./archicustos.sh
+```
+
+If custody is valid and continuous:
+
+```text
+ACCEPTED
+```
+
+If custody is invalid or breaks continuity:
+
+```text
+DENIED
+```
+
+---
+
+## Contract
+
+Once custody is recorded:
+
+* Responsibility is explicit
+* Authority is attributable
+* Disputes become traceable
+* Abdication is detectable
+
+ARCHICUSTOS guarantees **no anonymous authority**.
+
+---
+
+## Relationship to Other Artifacts
+
+* **GUILLOTINE** — executes
+* **IRREVOCULL** — judges
+* **ATTESTORIUM** — witnesses
+* **VALIDEXOR** — verifies
+* **LIMENWARD** — guards transitions
+* **ORIGINSEAL** — seals origin
+* **ARCHICUSTOS** — guards custody
+
+Each artifact covers exactly one irreversible dimension.
+None overlap.
+
+---
+
+## Warning
+
+Custody creates liability.
+
+If you invoke ARCHICUSTOS, you are declaring:
+
+* "This is under my authority"
+* "I accept responsibility"
+* "I cannot later deny custody"
+
+That is the point.
+
+---
+
+## About
+
+ARCHICUSTOS is a minimal, deterministic custody primitive for irreversible systems.
+
+If authority does not matter, do not use it.
+If it does, nothing else is sufficient.
+
+---
+
+## Responsibility Boundary
+
+This software is provided under the MIT License.
+
+The MIT License permits use, copying, modification, and redistribution of the code, but it does not provide assurance, certification, audit defense, operational guarantees, or liability coverage.
+
+Use of this software in environments where failure, compliance, legal exposure, or irreversible decisions matter requires an accountable party.
+
+The original maintainer is available for assurance, adaptation, and responsibility when such accountability is required.
+
+Contact: contact@speedkit.eu
+
+Authoritative signed records are issued separately and are not produced by the software.
