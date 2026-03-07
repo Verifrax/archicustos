@@ -1,211 +1,147 @@
-PRIM-007
-ARCHICUSTOS
-Custody primitive
+# ARCHICUSTOS
 
-STATUS: REGISTERED
-REGISTRY: https://speedkit.eu
-SNAPSHOT: https://speedkit.eu/REGISTRY_SNAPSHOT.json
-```
+Primitive ID: PRIM-002  
+Package: @verifrax/archicustos  
+Binary: archicustos
 
-Registered artifact. Identity governed by SPEEDKIT registry.
-
-STATUS: FINAL
+Verifrax primitive — custody preservation primitive for deterministic irreversible systems.
 
 ---
 
-Registered artifact. Identity governed by SPEEDKIT registry.
+## Status
 
-STATUS: FINAL
+Current release status: pre-stable primitive release line.
 
----
+Canonical release target:
 
-**ARCHICUSTOS v0.0.0** is a custody primitive.
+package version: 0.1.0  
+tag: v0.1.0
 
-It does not decide.
-It does not verify.
-It does not witness.
-It does not execute.
-It does not enforce transitions.
-
-It **guards custody**.
-
-ARCHICUSTOS exists to make authority, responsibility, and ownership explicit across irreversible systems.
+ARCHICUSTOS is part of the Verifrax primitive layer and follows the canonical primitive governance, naming, version, and packaging rules.
 
 ---
 
-## Philosophy
+## Purpose
 
-Most failures are not technical.
-They are failures of custody.
+ARCHICUSTOS preserves deterministic custody after origin has been fixed.
 
-Who was responsible?
-Who held authority?
-Who had the right to act at that moment?
+Once an artifact has a stable origin, custody must remain legible, bounded, and preservable across handling events. ARCHICUSTOS exists to keep that custody surface from becoming ambiguous, discontinuous, or silently drifting over time.
 
-ARCHICUSTOS exists to prevent these questions from becoming unanswerable.
-
-It answers one question only:
-
-> **Who holds custody right now?**
-
-Not who created.
-Not who modified.
-Not who claims.
-
-Custody.
+It does not establish origin. It does not verify truth. It does not witness, judge, or terminate. Its role is narrower: preserve custody continuity after origin exists.
 
 ---
 
-## What ARCHICUSTOS Is
+## What This Primitive Does
 
-ARCHICUSTOS is a **custody and authority primitive**.
-
-It records and enforces continuity of custodianship over an artifact, system, or process.
-
-It binds:
-
-* Declared custodian (stdin)
-* Repository identity
-* Commit context
-* Timestamp
-
-Into a single, append-only custody ledger.
-
-The result is **responsibility traceability**.
+- preserves custody continuity for an already-originated artifact
+- records or enforces a stable custody-preservation surface
+- emits custody-bound output suitable for downstream primitives
 
 ---
 
-## What It Is Not
+## What This Primitive Does Not Do
 
-* Not an access control system
-* Not an authentication mechanism
-* Not a verifier
-* Not a judge
-* Not a workflow engine
-* Not a governance framework
-
-ARCHICUSTOS does not grant power.
-It records **who already holds it**.
+- does not establish first origin
+- does not determine temporal ordering beyond custody-preservation context
+- does not verify correctness
+- does not witness or attest
+- does not judge validity
+- does not terminate lifecycle
 
 ---
 
-## Behavior
+## Behavioral Contract
 
-* Consumes custody declarations exclusively via `stdin`
-* Refuses silent invocation
-* Requires explicit custodian declaration
-* Records custody claims immutably
-* Enforces continuity (no orphaned custody)
-* Emits exactly one verdict
-* Exits immediately after recording
+Invocation model:
 
-No retries.
-No flags.
-No configuration.
+executable: archicustos  
+package: @verifrax/archicustos  
+runtime: CLI-first
 
----
+The primitive operates on an artifact whose origin surface is already fixed.
 
-## Verdicts
+If origin is absent, custody preservation is undefined. ARCHICUSTOS must not fabricate prior origin or pretend custody continuity exists where no stable origin anchor exists.
 
-ARCHICUSTOS emits exactly one of the following:
+Exit codes:
 
-* `ACCEPTED` — custody recorded and continuous
-* `DENIED` — custody invalid, ambiguous, or conflicting
-
-The verdict concerns **authority continuity**, not correctness.
+0 — custody preservation completed successfully  
+non-zero — invocation failed or contract violated
 
 ---
 
 ## Usage
 
-ARCHICUSTOS is never run casually.
-It is invoked when custody matters.
+Install:
 
-```sh
-<custodian-identity> | ./archicustos.sh
-```
+npm install -g @verifrax/archicustos
 
-### Example
+Execute:
 
-```sh
-echo "custodian: midiakiasat" | ./archicustos.sh
-```
+archicustos artifact.json
 
-If custody is valid and continuous:
+stdin example:
 
-```text
-ACCEPTED
-```
-
-If custody is invalid or breaks continuity:
-
-```text
-DENIED
-```
+cat artifact.json | archicustos
 
 ---
 
-## Contract
+## Determinism Guarantees
 
-Once custody is recorded:
+For identical canonical input, ARCHICUSTOS must produce identical custody-preservation output.
 
-* Responsibility is explicit
-* Authority is attributable
-* Disputes become traceable
-* Abdication is detectable
+No hidden environmental state may influence the result.
 
-ARCHICUSTOS guarantees **no anonymous authority**.
+ARCHICUSTOS assumes an already-bounded origin surface and does not substitute for origin fixation, verification, or later judgment primitives.
 
 ---
 
-## Relationship to Other Artifacts
+## Security Model
 
-* **GUILLOTINE** — executes
-* **IRREVOCULL** — judges
-* **ATTESTORIUM** — witnesses
-* **VALIDEXOR** — verifies
-* **LIMENWARD** — guards transitions
-* **ORIGINSEAL** — seals origin
-* **ARCHICUSTOS** — guards custody
+ARCHICUSTOS protects against ambiguity or silent drift in custody continuity.
 
-Each artifact covers exactly one irreversible dimension.
-None overlap.
+Its security value is to preserve legible custody after origin. It does not guarantee validity, attestation, or irreversible judgment, and it must not be described as a substitute for those downstream roles.
 
 ---
 
-## Warning
+## Relationship to Other Primitives
 
-Custody creates liability.
+Canonical primitive order:
 
-If you invoke ARCHICUSTOS, you are declaring:
+1 originseal  
+2 archicustos  
+3 kairoclasp  
+4 limenward  
+5 validexor  
+6 attestorium  
+7 irrevocull  
+8 guillotine
 
-* "This is under my authority"
-* "I accept responsibility"
-* "I cannot later deny custody"
+Repositories:
 
-That is the point.
+https://github.com/Verifrax/originseal  
+https://github.com/Verifrax/archicustos  
+https://github.com/Verifrax/kairoclasp  
+https://github.com/Verifrax/limenward  
+https://github.com/Verifrax/validexor  
+https://github.com/Verifrax/attestorium  
+https://github.com/Verifrax/irrevocull  
+https://github.com/Verifrax/guillotine
 
 ---
 
-## About
+## Installation
 
-ARCHICUSTOS is a minimal, deterministic custody primitive for irreversible systems.
+npm install -g @verifrax/archicustos
 
-If authority does not matter, do not use it.
-If it does, nothing else is sufficient.
+command -v archicustos
+
+Repository:
+- GitHub: https://github.com/Verifrax/archicustos
+- Package: @verifrax/archicustos
+- Binary: archicustos
 
 ---
 
-## Responsibility Boundary
+## License
 
-This software is provided under the MIT License.
-
-The MIT License permits use, copying, modification, and redistribution of the code, but it does not provide assurance, certification, audit defense, operational guarantees, or liability coverage.
-
-Use of this software in environments where failure, compliance, legal exposure, or irreversible decisions matter requires an accountable party.
-
-The original maintainer is available for assurance, adaptation, and responsibility when such accountability is required.
-
-Contact: contact@speedkit.eu
-
-Authoritative signed records are issued separately and are not produced by the software.
+MIT

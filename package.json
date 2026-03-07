@@ -1,0 +1,26 @@
+{
+  "name": "@verifrax/archicustos",
+  "version": "0.1.0",
+  "description": "Verifrax primitive — custody preservation primitive for deterministic irreversible systems.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Verifrax/archicustos.git"
+  },
+  "homepage": "https://github.com/Verifrax/archicustos#readme",
+  "bugs": {
+    "url": "https://github.com/Verifrax/archicustos/issues"
+  },
+  "bin": {
+    "archicustos": "archicustos.sh"
+  },
+  "files": [
+    "archicustos.sh",
+    "README.md",
+    "LICENSE",
+    "VERSION"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
