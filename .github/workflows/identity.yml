@@ -9,9 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Verify README identity (PRIM-007)
+
+      - name: Verify README identity (PRIM-002)
         shell: bash
         run: |
           set -euo pipefail
-          test -f README.md
-          head -n 1 README.md | grep -Eq "^PRIM-007$"
+          grep -q "^# ARCHICUSTOS$" README.md || { echo "FAIL: title missing"; exit 1; }
+          grep -q "^Primitive ID: PRIM-002" README.md || { echo "FAIL: PRIM-002 not found"; exit 1; }
+          grep -q "^Package: @verifrax/archicustos" README.md || { echo "FAIL: package line missing"; exit 1; }
+          grep -q "^Binary: archicustos" README.md || { echo "FAIL: binary line missing"; exit 1; }
+          echo "PASS: PRIM-002 identity verified"
