@@ -1,5 +1,5 @@
 #!/bin/sh
-# ARCHICUSTOS v0.0.0
+# ARCHICUSTOS v0.1.0
 # Custody tracking utility
 # Records custody claims with continuity enforcement.
 # No execution. No mutation. No remediation.
@@ -66,7 +66,7 @@ REPO="$(git rev-parse --show-toplevel)"
   printf 'REPO: %s\n' "$REPO"
   printf 'COMMIT: %s\n' "$COMMIT"
   printf 'CUSTODY:\n%s\n' "$TEXT"
-  printf '---\n'
+  printf '%s\n' '---'
 } >> ARCHICUSTOS.log
 
 # --- Verdict ---------------------------------------------------------------
