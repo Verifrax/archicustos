@@ -1,5 +1,9 @@
 # ARCHICUSTOS
 
+Package: @verifrax/archicustos
+Binary: archicustos
+Repository: Verifrax/archicustos
+
 Primitive ID: PRIM-002
 Package: @verifrax/archicustos
 Binary: archicustos
